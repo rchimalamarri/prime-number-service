@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Prime Number Service API Specification",
+    "description": "Swagger for Prime Number Service API Specification",
+    "contact": {
+      "name": "Venkata Raghu Vamsi Chimalamarri",
+      "email": "rchimalamarri@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/prime/numberList": {
+      "get": {
+        "tags": [
+          "GetPrimeNumberList"
+        ],
+        "summary": "Get Prime Number List",
+        "parameters": [
+          {
+            "name": "UpperLimit",
+            "in": "header",
+            "description": "UpperLimit",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/PrimeNumberResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "405": {
+            "description": "Method Not Allowed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PrimeNumberResponse": {
+        "required": [
+          "primeNumbersList"
+        ],
+        "type": "object",
+        "properties": {
+          "PrimeNumbersList": {
+            "type": "array",
+            "items" : {
+              "type" : "integer",
+              "description" : "2"
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "PrimeNumberResponse": {
+        "description": "Guest Info details for the date",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PrimeNumberResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}
