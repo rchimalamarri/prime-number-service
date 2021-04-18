@@ -14,7 +14,7 @@ post man URL :
 
 http://localhost:8080/prime/numberList
 
-Headers : Content-Type :application/json UpperLimit: any postive int value Example 10 (MAndatory header).
+Headers : Content-Type :application/json UpperLimit: any postive int value Example 10 (Mandatory header).
 
 Please refer the swagger document for the more information .
 
